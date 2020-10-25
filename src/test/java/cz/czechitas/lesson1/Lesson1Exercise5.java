@@ -20,9 +20,7 @@ Cvičení 5:
 public class Lesson1Exercise5 {
 
     private static String downloadsPath = Settings.PATH;
-    private static String shopUrl = Settings.baseUrl + "/shop";
-
-    private static final String baseUrl = "https://czechitas-shopizer.azurewebsites.net/shop/";
+    private static String shopUrl = Settings.baseUrl + "/shop/";
 
     public static void main(String[] args) throws InterruptedException {
 

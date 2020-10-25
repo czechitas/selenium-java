@@ -33,7 +33,7 @@ public class Lesson1Exercise4 {
 
         Thread.sleep(5000);
 
-        driver.navigate().to("https://czechitas-shopizer.azurewebsites.net/shop");
+        driver.navigate().to("https://czechitas-shopizer.azurewebsites.net/shop/");
 
         Thread.sleep(5000);
 
