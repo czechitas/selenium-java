@@ -44,7 +44,7 @@ public class Lesson1Exercise4 {
 
     public static void takeScreenshot(WebDriver driver, String screenshotName) {
         File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        srcFile.renameTo(new File(Settings.PATH + "selenium-java/" + screenshotName + ".png"));
+        srcFile.renameTo(new File(Settings.PATH + "/" + screenshotName + ".png"));
     }
 
 }
