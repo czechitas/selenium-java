@@ -5,8 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
-import static java.lang.Thread.sleep;
-
 /*
 Cvičení 3:
  - Nav sigujtee v prohlížečí na http://czechitas-shopizer.azurewebsites.net/shop/
@@ -15,24 +13,22 @@ Cvičení 3:
  */
 public class Lesson1Exercise3 {
 
-    private static String downloadsPath = Settings.PATH;
+    private static String shopUrl = Settings.baseUrl + "/shop/";
 
     public static void main(String[] args) throws InterruptedException {
 
-        System.setProperty("webdriver.gecko.driver", Settings.PATH + "/src/test/resources/drivers/geckodriver");
+        System.setProperty(Settings.DRIVER, Settings.DRIVER_PATH);
 
         FirefoxOptions options = new FirefoxOptions()
                 .addArguments("-private")
-                .addPreference("browser.download.dir", downloadsPath)
+                .addPreference("browser.download.dir", Settings.PATH)
                 .addPreference("browser.download.folderList", 2);
 
         WebDriver driver = new FirefoxDriver(options);
 
         driver.manage().window().maximize();
 
-        Thread.sleep(5000);
-
-        driver.navigate().to("https://czechitas-shopizer.azurewebsites.net/shop/");
+        driver.navigate().to(shopUrl);
 
         Thread.sleep(5000);
 

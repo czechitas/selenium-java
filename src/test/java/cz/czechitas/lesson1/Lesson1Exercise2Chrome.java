@@ -2,8 +2,14 @@ package cz.czechitas.lesson1;
 
 import cz.czechitas.Settings;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /*
 Cvičení 2:
@@ -13,18 +19,20 @@ Cvičení 2:
  - Nastavte cestu pro stahování souborů
 
  */
-public class Lesson1Exercise2 {
+public class Lesson1Exercise2Chrome {
 
     public static void main(String[] args) throws InterruptedException {
 
         System.setProperty(Settings.DRIVER, Settings.DRIVER_PATH);
 
-        FirefoxOptions options = new FirefoxOptions()
-                .addArguments("-private")
-                .addPreference("browser.download.dir", Settings.PATH)
-                .addPreference("browser.download.folderList", 2);
+        Map<String, Object> prefs = new HashMap<>();
+        prefs.put("download.default_directory", Settings.PATH);
 
-        WebDriver driver = new FirefoxDriver(options);
+        ChromeOptions options = new ChromeOptions()
+                .addArguments("incognito")
+                .setExperimentalOption("prefs", prefs);
+
+        WebDriver driver = new ChromeDriver(options);
 
         driver.manage().window().maximize();
 

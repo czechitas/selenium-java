@@ -19,27 +19,22 @@ Cvičení 5:
  */
 public class Lesson1Exercise5 {
 
-    private static String downloadsPath = Settings.PATH;
     private static String shopUrl = Settings.baseUrl + "/shop/";
 
     public static void main(String[] args) throws InterruptedException {
 
-        System.setProperty("webdriver.gecko.driver", Settings.PATH + "/src/test/resources/drivers/geckodriver");
+        System.setProperty(Settings.DRIVER, Settings.DRIVER_PATH);
 
         FirefoxOptions options = new FirefoxOptions()
                 .addArguments("-private")
-                .addPreference("browser.download.dir", downloadsPath)
+                .addPreference("browser.download.dir", Settings.PATH)
                 .addPreference("browser.download.folderList", 2);
 
         WebDriver driver = new FirefoxDriver(options);
 
         driver.manage().window().maximize();
 
-        Thread.sleep(5000);
-
         driver.navigate().to(shopUrl);
-
-        Thread.sleep(5000);
 
         takeScreenshot(driver, "shop1");
 
@@ -53,12 +48,18 @@ public class Lesson1Exercise5 {
 
         System.out.println(driver.getPageSource().length());
 
+        Thread.sleep(5000);
+
         driver.quit();
     }
 
     public static void takeScreenshot(WebDriver driver, String screenshotName) {
         File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        srcFile.renameTo(new File(Settings.PATH + "/" + screenshotName + ".png"));
+        System.out.println("Screenshot saved in: " + srcFile.getAbsolutePath());
+
+        File newFile = new File(Settings.PATH + "/" + screenshotName + ".png");
+        srcFile.renameTo(newFile);
+        System.out.println("Screenshot moved to: " + newFile.getAbsolutePath());
     }
 
 }
