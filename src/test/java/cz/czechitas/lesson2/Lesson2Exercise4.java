@@ -8,12 +8,11 @@ import org.openqa.selenium.WebElement;
 
 /*
 Cvičení 4:
- - GetAttribute
- - Získejte všechny atributy pro search box element
+ - Najděte všechny položky v eshopu za pomoci řetězení elementů
  */
 public class Lesson2Exercise4 {
 
-    private static String shopUrl = Settings.baseUrl + "/shop";
+    private static String shopUrl = Settings.baseUrl + "/shop/";
 
     public static void main(String[] args) throws InterruptedException {
 
@@ -21,10 +20,12 @@ public class Lesson2Exercise4 {
 
         driver.navigate().to(shopUrl);
 
-        WebElement searchField = driver.findElement(By.id("searchField"));
-        System.out.println(searchField.getAttribute("type"));
-        System.out.println(searchField.getAttribute("name"));
-        System.out.println(searchField.getAttribute("class"));
+        driver.findElement(By.id("featuredItemsContainer"))
+                .findElements(By.className("listing-product-name"))
+                .forEach((WebElement we) -> {
+                    System.out.println(we.getText());
+                });
+
 
         driver.quit();
     }

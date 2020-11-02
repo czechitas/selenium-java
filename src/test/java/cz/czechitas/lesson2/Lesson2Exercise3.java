@@ -10,13 +10,16 @@ import java.util.List;
 
 /*
 Cvičení 3:
- - Vyplňte do Search boxu “Table”
+ - Vyplňte něco do políčka Search
  - Klikněte na tlačítko search
  - Najděte a uložte do kolekce všechny vyhledané položky v eshopu na stránce
+ - Vypište počet položek ve výsledku
+ - Vypište text každé z nich
+
  */
 public class Lesson2Exercise3 {
 
-    private static String shopUrl = Settings.baseUrl + "/shop";
+    private static String shopUrl = Settings.baseUrl + "/shop/";
 
     public static void main(String[] args) throws InterruptedException {
 
@@ -25,15 +28,15 @@ public class Lesson2Exercise3 {
         driver.navigate().to(shopUrl);
 
         WebElement searchField = driver.findElement(By.id("searchField"));
-        searchField.sendKeys("Table");
+        searchField.sendKeys("Laptop");
 
         WebElement searchButton = driver.findElement(By.className("searchButton"));
         searchButton.click();
 
-        List<WebElement> items = driver.findElements(By.className("listing-product-name"));
+        List<WebElement> productItems = driver.findElements(By.className("listing-product-name"));
 
-        System.out.println("Found " + items.size() + " products:");
-        items.forEach((WebElement element) -> {
+        System.out.println("Found " + productItems.size() + " products:");
+        productItems.forEach((WebElement element) -> {
             System.out.println(element.getText());
         });
 

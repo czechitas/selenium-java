@@ -10,11 +10,12 @@ import java.util.List;
 
 /*
 Cvičení 2:
-Najděte a uložte do kolekce elementů všechny položky eshopu na hlavní stránce pomocí driver.findElements
+ - Pomocí findElements najděte a uložte do kolekce elementů všechny položky eshopu na hlavní stránce
+ - Vypište text každé z nich
  */
 public class Lesson2Exercise2 {
 
-    private static String shopUrl = Settings.baseUrl + "/shop";
+    private static String shopUrl = Settings.baseUrl + "/shop/";
 
     public static void main(String[] args) throws InterruptedException {
 
@@ -22,16 +23,10 @@ public class Lesson2Exercise2 {
 
         driver.navigate().to(shopUrl);
 
-        WebElement searchField = driver.findElement(By.id("searchField"));
-        System.out.println(searchField.isEnabled());
+        List<WebElement> productItems = driver.findElements(By.className("listing-product-name"));
 
-        WebElement searchButton = driver.findElement(By.className("searchButton"));
-        System.out.println(searchButton.isEnabled());
-
-        List<WebElement> items = driver.findElements(By.className("listing-product-name"));
-
-        System.out.println("Found " + items.size() + " products:");
-        items.forEach((WebElement element) -> {
+        System.out.println("Found " + productItems.size() + " products:");
+        productItems.forEach((WebElement element) -> {
             System.out.println(element.getText());
         });
 

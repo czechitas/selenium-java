@@ -6,13 +6,13 @@ import org.openqa.selenium.WebDriver;
 
 public class Lesson2 {
 
-    private static final String baseUrlShop = Settings.baseUrl + "/shop";
+    private static String shopUrl = Settings.baseUrl + "/shop/";
 
     public static void main(String[] args) throws InterruptedException {
 
         WebDriver driver = DriverHelper.openFirefox();
 
-        driver.navigate().to(baseUrlShop);
+        driver.navigate().to(shopUrl);
 
         // sem pište kód
 

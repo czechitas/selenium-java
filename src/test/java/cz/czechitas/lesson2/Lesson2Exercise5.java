@@ -10,11 +10,11 @@ import java.util.List;
 
 /*
 Cvičení 5:
-Lokalizujte elementy pomocí Xpath s použitím několika vlastností elementů
+ - Najděte druhou položku eshopu pomucí xpath
  */
 public class Lesson2Exercise5 {
 
-    private static String shopUrl = Settings.baseUrl + "/shop";
+    private static String shopUrl = Settings.baseUrl + "/shop/";
 
     public static void main(String[] args) throws InterruptedException {
 
