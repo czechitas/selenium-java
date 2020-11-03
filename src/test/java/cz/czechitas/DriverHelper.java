@@ -47,10 +47,7 @@ public class DriverHelper {
             driverPath = "drivers/" + driver + "driver";
         }
 
-        System.setProperty(
-                "webdriver." + driver + ".driver",
-                Objects.requireNonNull(DriverHelper.class.getClassLoader().getResource(driverPath)).getPath()
-        );
+        System.setProperty("webdriver." + driver + ".driver", getPath(driverPath));
     }
 
     private static String getPath(String path) {
