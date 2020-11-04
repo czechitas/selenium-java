@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
+import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -51,7 +52,12 @@ public class DriverHelper {
     }
 
     private static String getPath(String path) {
-        return Objects.requireNonNull(DriverHelper.class.getClassLoader().getResource(path)).getPath();
+        try {
+            return Objects.requireNonNull(DriverHelper.class.getClassLoader().getResource(path)).toURI().getPath();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+            throw new RuntimeException("Path " + path + " is invalid.");
+        }
     }
 
 }
