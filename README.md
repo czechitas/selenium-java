@@ -12,6 +12,8 @@
 2. Nastavte proměnné **PATH**, **DRIVER** a **DRIVER_PATH** ve třídě `src/test/java/cz/czechitas/Settings.java` tak, aby odpovídaly umístění vašeho projektu a vybranému prohlížeči.
 
 
-## Studijní materiály
+## Zdroje
 
-https://www.selenium.dev/documentation/en/
+ - https://www.selenium.dev/documentation/en
+ - https://www.w3schools.com/cssref/css_selectors.asp
+ - https://junit.org/junit5/
