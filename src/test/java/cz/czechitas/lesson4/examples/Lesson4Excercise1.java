@@ -1,7 +1,7 @@
 package cz.czechitas.lesson4.examples;
 
 import cz.czechitas.DriverHelper;
-import cz.czechitas.lesson4.examples.pages.ShopPage;
+import cz.czechitas.lesson4.examples.pages.ExampleShopPage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class Lesson4Excercise1 {
 
     private static WebDriver driver;
-    private static ShopPage shopPage;
+    private static ExampleShopPage shopPage;
 
     private static List<String> defaultProducts = Arrays.asList(
             "Chic Vintage DeVille",
@@ -28,7 +28,7 @@ public class Lesson4Excercise1 {
     @BeforeEach
     public void before() {
         driver = DriverHelper.openFirefox();
-        shopPage = new ShopPage(driver);
+        shopPage = new ExampleShopPage(driver);
         shopPage.openPage();
     }
 

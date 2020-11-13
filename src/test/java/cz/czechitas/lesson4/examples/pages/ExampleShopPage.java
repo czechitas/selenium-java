@@ -9,9 +9,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
-public class ShopPage {
+public class ExampleShopPage {
 
     private final By searchFieldSelector = By.id("searchField");
     private final By searchButtonSelector = By.className("searchButton");
@@ -20,7 +19,7 @@ public class ShopPage {
     private final int maxWaitInSeconds = 10;
     private final WebDriver driver;
 
-    public ShopPage(WebDriver driver) {
+    public ExampleShopPage(WebDriver driver) {
         this.driver = driver;
     }
 
@@ -47,17 +46,17 @@ public class ShopPage {
         // return driver.findElements(produtNameSelector).stream().map(WebElement::getText).collect(Collectors.toList());
     }
 
-    public List<ProductItem> getProducts() {
+    public List<ExampleProductItem> getProducts() {
         List<WebElement> productsAwaited = new WebDriverWait(driver, maxWaitInSeconds)
                 .until(ExpectedConditions.visibilityOfAllElements(driver.findElements(produtSelector)));
 
         // jednodušší
-        List<ProductItem> products = new ArrayList();
-        productsAwaited.forEach((WebElement element) -> products.add(new ProductItem(element)));
+        List<ExampleProductItem> products = new ArrayList();
+        productsAwaited.forEach((WebElement element) -> products.add(new ExampleProductItem(element)));
         return products;
 
         // složitější, ale lepší
-        // return productsAwaited.stream().map(ProductItem::new).collect(Collectors.toList());
+        // return productsAwaited.stream().map(ExampleProductItem::new).collect(Collectors.toList());
     }
 
 }
