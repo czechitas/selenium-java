@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class Assertions {
+public class AssertionExamples {
 
     @Test
     public void testSuccess() {
@@ -28,7 +28,7 @@ public class Assertions {
     public void testFailureWithMessage() {
         String expected = "brown fox jumps over the lazy dog";
         String actual = whoJumpsOverWhom("dog", "fox");
-        assertEquals("Test that fox jumps over dog and not the other way around", expected, actual);
+        assertEquals(expected, actual, "Test that fox jumps over dog and not the other way around");
     }
 
     static String whoJumpsOverWhom(String who, String overWhom) {
