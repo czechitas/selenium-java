@@ -1,6 +1,7 @@
 package cz.czechitas.lesson1;
 
 import cz.czechitas.Settings;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
@@ -16,7 +17,7 @@ public class Lesson1Exercise1 {
 
     public static void main(String[] args) throws InterruptedException {
 
-        System.setProperty(Settings.DRIVER, Settings.DRIVER_PATH);
+        WebDriverManager.firefoxdriver().setup();
 
         WebDriver driver = new FirefoxDriver();
 

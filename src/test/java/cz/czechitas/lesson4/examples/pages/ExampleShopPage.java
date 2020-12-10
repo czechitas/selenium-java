@@ -35,7 +35,7 @@ public class ExampleShopPage {
     public List<String> getProductNames() {
 
         List<WebElement> productsAwaited = new WebDriverWait(driver, maxWaitInSeconds)
-                .until(ExpectedConditions.visibilityOfAllElements(driver.findElements(produtNameSelector)));
+                .until(ExpectedConditions.visibilityOfAllElementsLocatedBy(produtNameSelector));
 
         // jednodušší
         List<String> names = new ArrayList();
@@ -48,7 +48,7 @@ public class ExampleShopPage {
 
     public List<ExampleProductItem> getProducts() {
         List<WebElement> productsAwaited = new WebDriverWait(driver, maxWaitInSeconds)
-                .until(ExpectedConditions.visibilityOfAllElements(driver.findElements(produtSelector)));
+                .until(ExpectedConditions.visibilityOfAllElementsLocatedBy(produtSelector));
 
         // jednodušší
         List<ExampleProductItem> products = new ArrayList();

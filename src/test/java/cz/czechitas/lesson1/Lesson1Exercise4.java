@@ -1,6 +1,7 @@
 package cz.czechitas.lesson1;
 
 import cz.czechitas.Settings;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -20,7 +21,7 @@ public class Lesson1Exercise4 {
 
     public static void main(String[] args) throws InterruptedException {
 
-        System.setProperty(Settings.DRIVER, Settings.DRIVER_PATH);
+        WebDriverManager.firefoxdriver().setup();
 
         FirefoxOptions options = new FirefoxOptions()
                 .addArguments("-private")
